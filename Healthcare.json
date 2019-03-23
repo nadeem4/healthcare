@@ -1,0 +1,604 @@
+{
+    "ApplicationName": "Healthcare4",
+    "DisplayName": "Healthcare App",
+    "Description": "0",
+    "ApplicationRoles": [
+      {
+        "Name": "MedicalProfessional",
+        "Description": "Firms that provide services to the metal industry, typically through the purchase of bulk metal from mills and the processing of this material into more manageable and valuable weights and forms for downstream manufacturing."
+      },
+      {
+        "Name": "Scheduling",
+        "Description": "Firms that process metal for Service Centers and receive payment for their services.  They are utilized by Service Centers primarily to accommodate excess demand, deliver material to remote customers, and complete specialized processing of material."
+      },
+      {
+        "Name": "Payor",
+        "Description": "Firms that process metal for Service Centers and receive payment for their services.  They are utilized by Service Centers primarily to accommodate excess demand, deliver material to remote customers, and complete specialized processing of material."
+      },
+      {
+        "Name": "Patient",
+        "Description": "Firms that process metal for Service Centers and receive payment for their services.  They are utilized by Service Centers primarily to accommodate excess demand, deliver material to remote customers, and complete specialized processing of material."
+      }
+    ],
+    "Workflows": [
+        {
+            "Name": "Healthcare4",
+            "DisplayName": "Healthcare App",
+            "Description": "Workflow is intended for all production processes outside of slitting and cut-to-length.",
+            "Initiators": [ "MedicalProfessional" ],
+            "StartState": "Ordered",
+            "Properties": [
+                {
+                    "Name": "State",
+                    "DisplayName": "State",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "state"
+                    }
+                },
+                {
+                    "Name": "InstanceMedicalProfessional",
+                    "DisplayName": "Medical Professional",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "MedicalProfessional"
+                    }
+                },
+                {
+                    "Name": "InstanceSchedulingPersonal",
+                    "DisplayName": "Scheduling Personal",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "Scheduling"
+                    }
+                },
+                {
+                    "Name": "InstancePayor",
+                    "DisplayName": "Paypr",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "Payor"
+                    }
+                },
+                {
+                    "Name": "InstancePatient",
+                    "DisplayName": "Patient",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "Patient"
+                    }
+                },
+                {
+                    "Name": "firstName",
+                    "DisplayName": "First Name",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "string"
+                    }
+                },
+                {
+                    "Name": "lastName",
+                    "DisplayName": "Last Name",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "string"
+                    }
+                },
+                {
+                    "Name": "dob",
+                    "DisplayName": "Date of Birth",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "string"
+                    }
+                },
+                {
+                    "Name": "email",
+                    "DisplayName": "Email",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "string"
+                    }
+                },
+                {
+                    "Name": "procedureOrdered",
+                    "DisplayName": "Procedure Ordered",
+                    "Description": "Procedure Ordered",
+                    "Type": {
+                        "Name": "enum",
+                        "EnumValues":[
+                            "MRI",
+                            "CAT_scan",
+                            "X_RAY",
+                            "Blood_Work"
+                        ]
+                    }
+                },
+                {
+                    "Name": "responisibilityAmount",
+                    "DisplayName": "Responsibility Amount",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "responsibiltyAmountCollected",
+                    "DisplayName": "Responsibility Amount Collected",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "int"
+                    }
+                }
+            ],
+            "Constructor" : {
+                "Parameters" : [
+                    {
+                        "Name": "_schedulingPersonal",
+                        "DisplayName": "Scheduling",
+                        "Description": "Holds the state of the contract",
+                        "Type": {
+                            "Name": "Scheduling"
+                        }
+                    },
+                    {
+                        "Name": "_payor",
+                        "DisplayName": "Payor",
+                        "Description": "Holds the state of the contract",
+                        "Type": {
+                            "Name": "Payor"
+                        }
+                    },
+                    {
+                        "Name": "_patient",
+                        "DisplayName": "Patient",
+                        "Description": "Holds the state of the contract",
+                        "Type": {
+                            "Name": "Patient"
+                        }
+                    },
+                    {
+                        "Name": "_firstName",
+                        "DisplayName": "First Name",
+                        "Description": "Holds the state of the contract",
+                        "Type": {
+                            "Name": "string"
+                        }
+                    },
+                    {
+                        "Name": "_lastName",
+                        "DisplayName": "Last Name",
+                        "Description": "Holds the state of the contract",
+                        "Type": {
+                            "Name": "string"
+                        }
+                    },
+                    {
+                        "Name": "_dob",
+                        "DisplayName": "Date of Birth",
+                        "Description": "Holds the state of the contract",
+                        "Type": {
+                            "Name": "string"
+                        }
+                    },
+                    {
+                        "Name": "_email",
+                        "DisplayName": "Email",
+                        "Description": "Holds the state of the contract",
+                        "Type": {
+                            "Name": "string"
+                        }
+                    },
+                    {
+                        "Name": "_procedureOrdered",
+                        "DisplayName": "Procedure Ordered",
+                        "Description": "Procedure Ordered",
+                        "Type": {
+                            "Name": "enum",
+                            "EnumValues":[
+                                "MRI",
+                                "CAT_scan",
+                                "X_RAY",
+                                "Blood_Work"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Functions": [
+                {
+                    "Name": "receive",
+                    "DisplayName": "Receive",
+                    "Description": "Receive",
+                    "Parameters": []
+                },
+                {
+                    "Name": "updateIdentity",
+                    "DisplayName": "Update Identity",
+                    "Description": "updateIdentity",
+                    "Parameters": [
+                        {
+                            "Name": "_firstName",
+                            "DisplayName": "First Name",
+                            "Description": "Holds the state of the contract",
+                            "Type": {
+                                "Name": "string"
+                            }
+                        },
+                        {
+                            "Name": "_lastName",
+                            "DisplayName": "Last Name",
+                            "Description": "Holds the state of the contract",
+                            "Type": {
+                                "Name": "string"
+                            }
+                        },
+                        {
+                            "Name": "_dob",
+                            "DisplayName": "Date of Birth",
+                            "Description": "Holds the state of the contract",
+                            "Type": {
+                                "Name": "string"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "requestpatientIdentity",
+                    "DisplayName": "Request Patient Identity ",
+                    "Description": "patientIdentityRequested",
+                    "Parameters": []
+                },
+                {
+                    "Name": "confirmPatientIdentity",
+                    "DisplayName": "Confirm Patient Identity",
+                    "Description": "confirmPatientIdentity",
+                    "Parameters": []
+                },
+                {
+                    "Name": "denyPatientIdentity",
+                    "DisplayName": "Deny Patient Identity",
+                    "Description": "denyPatientIdentity",
+                    "Parameters": []
+                },
+                {
+                    "Name": "requestCoverage",
+                    "DisplayName": "Request Coverage/Eligibility",
+                    "Description": "requestCoverage",
+                    "Parameters": []
+                },
+                {
+                    "Name": "returnCovergaeDetails",
+                    "DisplayName": "Provide Coverage Details",
+                    "Description": "returnCovergaeDetails",
+                    "Parameters": []
+                },
+                {
+                    "Name": "checkForMedicalNecessity",
+                    "DisplayName": "Check For Medical Necessity",
+                    "Description": "checkForMedicalNecessity",
+                    "Parameters": []
+                },
+                {
+                    "Name": "requestAuthorization",
+                    "DisplayName": "Request Authorization",
+                    "Description": "requestAuthorization",
+                    "Parameters": []
+                },
+                {
+                    "Name": "validateMedicalNecessity",
+                    "DisplayName": "Validate Medical Necessity",
+                    "Description": "validateMedicalNecessity",
+                    "Parameters": []
+                },
+                {
+                    "Name": "approveAuthorization",
+                    "DisplayName": "Approve Authorization",
+                    "Description": "approveAuthorization",
+                    "Parameters": []
+                },
+                {
+                    "Name": "communicateFinancialResponsibility",
+                    "DisplayName": "Communicate Financial Responsibility",
+                    "Description": "communicateFinancialResponsibility",
+                    "Parameters": [
+                        {
+                            "Name": "_responisibilityAmount",
+                            "DisplayName": "Patient responsible for the following amount",
+                            "Description": "",
+                            "Type": {
+                                "Name":"int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "registerPatient",
+                    "DisplayName": "Register",
+                    "Description": "Register",
+                    "Parameters": []
+                },
+                {
+                    "Name": "collectPayment",
+                    "DisplayName": "Collect Payment",
+                    "Description": "Collect Payment",
+                    "Parameters": [
+                        {
+                            "Name": "_amountCollected",
+                            "DisplayName": "Amount Collected",
+                            "Description": "",
+                            "Type": {
+                                "Name":"int"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "States" : [
+                {
+                    "Name": "Ordered",
+                    "DisplayName": "Ordered",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 10,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "receive",
+                        "NextStates": [ "Received" ],
+                        "DisplayName": "Received"
+                      },
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "updateIdentity",
+                        "NextStates": [ "IdentityUpdated" ],
+                        "DisplayName": "Received "
+                      }
+                    ]
+                },
+                {
+                    "Name": "IdentityUpdated",
+                    "DisplayName": "Received",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 15,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "requestpatientIdentity",
+                        "NextStates": [ "PatientIdentityRequested" ],
+                        "DisplayName": "Patient Identity Requested"
+                      }
+                    ]
+                },
+                {
+                    "Name": "Received",
+                    "DisplayName": "Received",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 15,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "requestpatientIdentity",
+                        "NextStates": [ "PatientIdentityRequested" ],
+                        "DisplayName": "Patient Identity Requested"
+                      }
+                    ]
+                },
+                {
+                    "Name": "PatientIdentityRequested",
+                    "DisplayName": "Patient Identity Requested",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 25,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstancePayor" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "confirmPatientIdentity",
+                        "NextStates": [ "PatientIndentityConfirmed" ],
+                        "DisplayName": "Patient Indentity Confirmed"
+                      },
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstancePayor" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "denyPatientIdentity",
+                        "NextStates": [ "PatientIndentityDenied" ],
+                        "DisplayName": "Patient Indentity Denied"
+                      }
+                    ]
+                },
+                {
+                    "Name": "PatientIndentityConfirmed",
+                    "DisplayName": "Patient Identity Confirmed",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 35,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "requestCoverage",
+                        "NextStates": [ "CoverageOrEligibilityRequested" ],
+                        "DisplayName": "Coverage/ Eligibility Requested"
+                      }
+                    ]
+                },
+                {
+                    "Name": "PatientIndentityDenied",
+                    "DisplayName": "Patient Identity Denied",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 10,
+                    "Style": "Failure",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ ],
+                            "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requestCoverage",
+                            "NextStates": [ "CoverageOrEligibilityRequested" ],
+                            "DisplayName": "Coverage/ Eligibility Requested"
+                        }
+                    ]
+                },
+                {
+                    "Name": "CoverageOrEligibilityRequested",
+                    "DisplayName": "Coverage/ Eligibility Requested",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 45,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstancePayor" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "returnCovergaeDetails",
+                        "NextStates": [ "ConverageOrEligibilityProvided" ],
+                        "DisplayName": "Coverage/ Eligibility Provided"
+                      }
+                    ]
+                },
+                {
+                    "Name": "ConverageOrEligibilityProvided",
+                    "DisplayName": "Coverage/ Eligibility Provided",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 55,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "requestAuthorization",
+                        "NextStates": [ "AuthorizationRequested" ],
+                        "DisplayName": "Authorization Requested"
+                      }
+                    ]
+                },
+                {
+                    "Name": "AuthorizationRequested",
+                    "DisplayName": "Authorization Requested",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 65,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstancePayor" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "approveAuthorization",
+                        "NextStates": [ "AuthorizationApproved" ],
+                        "DisplayName": "Authorization Approved"
+                      }
+                    ]
+                },
+                {
+                    "Name": "AuthorizationApproved",
+                    "DisplayName": "Authorization Approved",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 75,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "communicateFinancialResponsibility",
+                        "NextStates": [ "FinancialResponsibilityCommunicated" ],
+                        "DisplayName": "Financial Responsibility Communicated"
+                      }
+                    ]
+                },
+                {
+                    "Name": "FinancialResponsibilityCommunicated",
+                    "DisplayName": "Financial Responsibility Communicated",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 80,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstancePatient" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "registerPatient",
+                        "NextStates": [ "PatientRegistered" ],
+                        "DisplayName": "Patient Registered"
+                      }
+                    ]
+                },
+                {
+                    "Name": "PatientRegistered",
+                    "DisplayName": "Patient Registered",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 90,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "collectPayment",
+                        "NextStates": [ "PaymentCollected" ],
+                        "DisplayName": "Payment Collected"
+                      },
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "collectPayment",
+                        "NextStates": [ "PaymentOutstanding" ],
+                        "DisplayName": "Payment Outstanding"
+                      }
+                    ]
+                },
+                {
+                    "Name": "PaymentOutstanding",
+                    "DisplayName": "Payment Outstanding",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 90,
+                    "Style": "Success",
+                    "Transitions": [
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "collectPayment",
+                        "NextStates": [ "PaymentCollected" ],
+                        "DisplayName": "Payment Collected"
+                      },
+                      {
+                        "AllowedRoles": [ ],
+                        "AllowedInstanceRoles": [ "InstanceSchedulingPersonal" ],
+                        "Description": "Modify attributes of this contract.",
+                        "Function": "collectPayment",
+                        "NextStates": [ "PaymentOutstanding" ],
+                        "DisplayName": "Payment Outstanding"
+                      }
+                    ]
+                },
+                {
+                    "Name": "PaymentCollected",
+                    "DisplayName": "Payment Collected",
+                    "Description": "Contract has been created but not yet approved or communicated to the Outside Processor",
+                    "PercentComplete": 100,
+                    "Style": "Success",
+                    "Transitions": [
+                      
+                    ]
+                }
+            ]
+        }
+    ]
+}
